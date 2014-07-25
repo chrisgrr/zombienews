@@ -42,11 +42,6 @@ describe "Zombie Pages" do
         $TWITTER.stub(:search).with("#zombies", result_type: "recent").and_return(tweets)
       end
 
-      it 'fetches tweets with the hashtag #zombies' do
-        expect($TWITTER).to receive(:search).with("#zombies", result_type: "recent").and_return([])
-        visit '/'
-      end
-
       it 'shows a list of tweets' do
         visit '/'
         tweets.each do |tweet|

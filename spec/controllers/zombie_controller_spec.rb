@@ -10,6 +10,11 @@ RSpec.describe ZombieController, :type => :controller do
           and_return(double('response', take: tweets))
       end
 
+    it "fetches recent tweets with the hashtag #zombies" do
+      expect($TWITTER).to receive(:search).with("#zombies", result_type: "recent")
+      get :home
+    end
+
     it "assigns @tweets" do
       get :home
       expect(assigns(:tweets)).to eq(tweets)
