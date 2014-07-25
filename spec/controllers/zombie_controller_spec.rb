@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe ZombieController, :type => :controller do
   describe 'home' do
-      let(:tweets) { double('tweets') }
+    let(:tweets) { double('tweets') }
 
-      before do
-        $TWITTER.stub(:search).
-          with("#zombies", result_type: "recent").
-          and_return(double('response', take: tweets))
-      end
+    before do
+      $TWITTER.stub(:search).
+        with("#zombies", result_type: "recent").
+        and_return(double('response', take: tweets))
+    end
 
     it "fetches recent tweets with the hashtag #zombies" do
       expect($TWITTER).to receive(:search).with("#zombies", result_type: "recent")

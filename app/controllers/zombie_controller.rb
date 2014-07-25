@@ -6,5 +6,4 @@ class ZombieController < ApplicationController
 
   def about
   end
-
 end

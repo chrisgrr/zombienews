@@ -1,4 +1,28 @@
-@import "bootswatch/cyborg/variables";
+@import "bootswatch/journal/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
+
+img.main-image {
+  width: 100%;
+}
+
+@font-face {
+    font-family: horror;
+    src: url(/assets/true_lies.ttf);
+}
+
+.masthead {
+  padding-top: 100px;
+  background-size: 100%;
+  background-image: url(/assets/zombie_cropped_2.jpg);
+  padding-bottom: 30px;
+  
+}
+
+.masthead h1 {
+  font-family: horror;
+  text-align: center;
+  font-size: 100px;
+  color: #f00;
+}
