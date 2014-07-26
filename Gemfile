@@ -19,3 +19,7 @@ gem 'turbolinks'
 gem 'twitter'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+
+group :production do
+  gem 'sqlite3'
+end
