@@ -20,6 +20,7 @@ gem 'turbolinks'
 gem 'twitter'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'sprockets'
 
 group :production do
   gem 'pg'

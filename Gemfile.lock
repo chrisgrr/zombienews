@@ -193,6 +193,7 @@ DEPENDENCIES
   rspec-rails (= 3.0.2)
   sass-rails (~> 4.0.3)
   selenium-webdriver
+  sprockets
   sqlite3
   turbolinks
   twitter
