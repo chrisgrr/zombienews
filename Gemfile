@@ -19,3 +19,8 @@ gem 'turbolinks'
 gem 'twitter'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
