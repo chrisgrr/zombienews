@@ -21,6 +21,7 @@ gem 'twitter'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'sprockets'
+gem 'redis'
 
 group :production do
   gem 'pg'

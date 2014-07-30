@@ -4,11 +4,9 @@
 
   <%= link_to "About Zombie News", about_path %>
 
-  <% cache("tweets", :expires_in => 5.minutes) do %>
-    <div id="tweets">
-      <% @tweets.each do |tweet| %>
-      <p><img src="<%= tweet.user.profile_image_url %>">  <strong><%= tweet.user.name %></strong>:&nbsp;<a href="<%= tweet.url %>"><%= "#{tweet.user.screen_name}: #{tweet.text}" %></a><br><small><%= tweet.created_at %></small></p>
-      <% end %>
-    </div>
-  <% end %>
+  <div id="tweets">
+    <% @tweets.each do |tweet| %>
+      <p><img src="http://pbs.twimg.com<%= tweet["user_profile_image"]["path"] %>"><strong><%= tweet["user_name"] %></strong>:&nbsp;<a href="http://www.twitter.com<%= tweet["url"]["path"] %>"><%= tweet["text"] %></a><br><small><%= tweet["created_at"] %></small></p>
+    <% end %>
+  </div>
 </div>
