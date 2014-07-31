@@ -19,7 +19,8 @@ class ZombieController < ApplicationController
         }
       end
 
-      $REDIS.set('tweets', @tweets.to_json, expires_in: 5.minutes)
+      $REDIS.set('tweets', @tweets.to_json)
+      $REDIS.expire('tweets', 10)
     end
   end
 
