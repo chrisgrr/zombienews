@@ -6,7 +6,7 @@
 
   <div id="tweets">
     <% @tweets.each do |tweet| %>
-      <p><img src="http://pbs.twimg.com<%= tweet["user_profile_image"]["path"] %>"><strong><%= tweet["user_name"] %></strong>:&nbsp;<a href="http://www.twitter.com<%= tweet["url"]["path"] %>"><%= tweet["text"] %></a><br><small><%= tweet["created_at"] %></small></p>
+      <p><img src="http://pbs.twimg.com<%= tweet["user_profile_image"]["path"] %>"><strong><%= tweet["user_name"] %></strong>:&nbsp;<a href="<%= tweet["url"] %>"><%= tweet["text"] %></a><br><small><%= tweet["created_at"] %></small></p>
     <% end %>
   </div>
 </div>

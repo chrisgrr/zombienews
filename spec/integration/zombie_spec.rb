@@ -4,6 +4,9 @@ describe "Zombie Pages" do
 
   before do
     $TWITTER.stub(:search).and_return([])
+    $REDIS.stub(:get).with('tweets').and_return(nil)
+    $REDIS.stub(:set).and_return(nil)
+    $REDIS.stub(:expire).and_return(nil)
   end
 
   describe "Home Page" do
@@ -19,21 +22,23 @@ describe "Zombie Pages" do
         [
           double(Twitter::Tweet, 
             user: double(Twitter::User,
+              profile_image_url: "http://pbs.twimg.com/profile_images/535346344/m15DoO_n_normal.jpeg",
               name: 'Larry the Zombie',
               screen_name: 'larry_the_zombie'
             ),
             created_at: Time.now,
             text: "Hey guys — check out this awesome brain shop!",
-            url: "https://twitter.com/larry_the_zombie/status/491698257966665728"
+            url: "www.twitter.com/larry_the_zombie/status/491698257966665728"
           ),
           double(Twitter::Tweet, 
             user: double(Twitter::User,
+              profile_image_url: "http://pbs.twimg.com/profile_images/65432223455/m15DoO_n_normal.jpeg",
               name: 'Laszlo the Ghoul',
               screen_name: 'laszlo_the_ghoul'
             ),
             created_at: Time.now,
             text: "Just made some great ghoulash!",
-            url: "https://twitter.com/laszlo_the_ghoul/status/098765434567890"
+            url: "www.twitter.com/laszlo_the_ghoul/status/098765434567890"
           )
         ]
       end

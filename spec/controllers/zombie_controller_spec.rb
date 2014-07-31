@@ -6,12 +6,14 @@ RSpec.describe ZombieController, :type => :controller do
   describe 'home' do
     let(:tweets) do
       [{
+        'user_profile_image' => "http://pbs.twimg.com/profile_images/535346344/m15DoO_n_normal.jpeg",
         'text' => 'Hey guys — check out this awesome brain shop!',
         'user_name' => 'Larry the Zombie',
         'screen_name' => 'larry_the_zombie',
         'created_at' => Date.parse('2014-01-01').to_s,
         'url' => "https://twitter.com/larry_the_zombie/status/491698257966665728"
       },{
+        'user_profile_image' => "http://pbs.twimg.com/profile_images/65432223455/m15DoO_n_normal.jpeg",
         'text' => 'Just made some great ghoulash!',
         'user_name' => 'Laszlo the Ghoul',
         'screen_name' => 'laszlo_the_ghoul',
@@ -25,6 +27,7 @@ RSpec.describe ZombieController, :type => :controller do
       [
         double(Twitter::Tweet, 
           user: double(Twitter::User,
+            profile_image_url: "http://pbs.twimg.com/profile_images/535346344/m15DoO_n_normal.jpeg",
             name: 'Larry the Zombie',
             screen_name: 'larry_the_zombie'
           ),
@@ -34,6 +37,7 @@ RSpec.describe ZombieController, :type => :controller do
         ),
         double(Twitter::Tweet, 
           user: double(Twitter::User,
+            profile_image_url: "http://pbs.twimg.com/profile_images/65432223455/m15DoO_n_normal.jpeg",
             name: 'Laszlo the Ghoul',
             screen_name: 'laszlo_the_ghoul'
           ),
