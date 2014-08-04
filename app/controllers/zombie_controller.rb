@@ -2,12 +2,10 @@ class ZombieController < ApplicationController
   
   def home
     @tweets = $REDIS.get('tweets')
-
     if @tweets
       @tweets = JSON.parse(@tweets)
     else
       @tweets = $TWITTER.search("#zombies", result_type: "recent").take(20)
-
       @tweets = @tweets.map do |tweet|
         {
           'user_profile_image' => tweet.user.profile_image_url,
@@ -18,9 +16,9 @@ class ZombieController < ApplicationController
           'url' => tweet.url.to_s,
         }
       end
-
       $REDIS.set('tweets', @tweets.to_json)
-      $REDIS.expire('tweets', 10)
+      $REDIS.expire('tweets', 300)
+      @tweets = JSON.parse($REDIS.get('tweets'))
     end
   end
 

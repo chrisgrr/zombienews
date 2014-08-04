@@ -22,6 +22,7 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'sprockets'
 gem 'redis'
+gem 'pry'
 
 group :production do
   gem 'pg'
